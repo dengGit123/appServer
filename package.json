@@ -1,0 +1,19 @@
+{
+  "name": "apiServer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --delay 3000 ./src/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mockjs": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
