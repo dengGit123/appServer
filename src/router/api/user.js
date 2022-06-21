@@ -10,70 +10,75 @@ const dataArr = function(mock, length) {
 	return arr
 }
 //登录
-router.get('/userInfo', function(req, res) {
-	let data = {
-		resultMsg: '成功',
-		resultCode: 200,
-		data: {
-			username: 'admin',
-			avatar: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
-		}
-	}
-	res.send(data)
-})
+// router.get('/userInfo', function(req, res) {
+// 	let data = {
+// 		resultMsg: '成功',
+// 		resultCode: 200,
+// 		data: {
+// 			username: 'admin',
+// 			avatar: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
+// 		}
+// 	}
+// 	res.send(data)
+// })
 //菜单
-router.get('/meuList', function(req, res) {
+router.post('/userInfo', function(req, res) {
 	let ids = []
 	for (let i = 0; i < 6; i++) {
 
 	}
 	let data = {
 		resultMsg: '成功',
-		resultCode: 200,
+		resultCode: '200',
 		data: {
+			permissions:[],
+			userInfo:{
+				username: 'admin',
+				avatar: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
+			},
 			menuList: [{
 					id: Mock.mock('@id'),
-					path: '/onlineDev',
+					url: '/onlineDev',
 					title: '在线开发',
-					unique: 'onlineDev',
+					permission: 'onlineDev',
 					hideInMenu: false,
 					children: [{
 							id: Mock.mock('@id'),
 							title: '功能设计',
-							path: '/onlineDev/webDesign',
-							unique: 'onlineDev_webDesign',
+							url: '/onlineDev/webDesign',
+							permission: 'onlineDev_webDesign',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '移动设计',
-							path: '/onlineDev/appDesign',
-							unique: 'onlineDev_appDesign',
+							url: '/onlineDev/appDesign',
+							permission: 'onlineDev_appDesign',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '报表设计',
-							path: '/onlineDev/dataReport',
-							unique: 'onlineDev_dataReport',
+							url: '/onlineDev/dataReport',
+							permission: 'onlineDev_dataReport',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '大屏设计',
-							path: '/onlineDev/dataScreen',
-							unique: 'onlineDev_dataScreen',
+							url: '/onlineDev/dataScreen',
+							permission: 'onlineDev_dataScreen',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '门户设计',
-							path: '/onlineDev/visualPortal',
-							unique: 'onlineDev_visualPortal',
+							url: '/onlineDev/visualPortal',
+							permission: 'onlineDev_visualPortal',
 							hideInMenu: false,
 							children: []
 						}
@@ -81,31 +86,31 @@ router.get('/meuList', function(req, res) {
 				},
 				{
 					id: Mock.mock('@id'),
-					path: '/generator',
+					url: '/generator',
 					title: '代码生成',
-					unique: 'generator',
+					permission: 'generator',
 					hideInMenu: false,
 					children: [{
 							id: Mock.mock('@id'),
 							title: '功能表单',
-							path: '/generator/webForm',
-							unique: 'generator_webForm',
+							url: '/generator/webForm',
+							permission: 'generator_webForm',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '移动表单',
-							path: '/generator/appForm',
-							unique: 'generator_webForm',
+							url: '/generator/appForm',
+							permission: 'generator_webForm',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '流程表单',
-							path: '/generator/flowForm',
-							unique: 'generator_webForm',
+							url: '/generator/flowForm',
+							permission: 'generator_webForm',
 							hideInMenu: false,
 							children: []
 						}
@@ -113,149 +118,149 @@ router.get('/meuList', function(req, res) {
 				},
 				{
 					id: Mock.mock('@id'),
-					path: '/system',
+					url: '/system',
 					title: '系统管理',
-					unique: 'system',
+					permission: 'system',
 					hideInMenu: false,
 					children: [{
 							id: Mock.mock('@id'),
 							title: '系统配置',
-							path: '/system/sysConfig',
-							unique: 'system_sysConfig',
+							url: '/system/sysConfig',
+							permission: 'system_sysConfig',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '系统公告',
-							path: '/system/notice',
-							unique: 'system_notice',
+							url: '/system/notice',
+							permission: 'system_notice',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '系统调度',
-							path: '/system/task',
-							unique: 'system_task',
+							url: '/system/task',
+							permission: 'system_task',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '系统缓存',
-							path: '/system/cache',
-							unique: 'system_cache',
+							url: '/system/cache',
+							permission: 'system_cache',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '系统日志',
-							path: '/system/log',
-							unique: 'system_log',
+							url: '/system/log',
+							permission: 'system_log',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '系统监控',
-							path: '/system/monitor',
-							unique: 'system_monitor',
+							url: '/system/monitor',
+							permission: 'system_monitor',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '系统图标',
-							path: '/system/icons',
-							unique: 'system_icons',
+							url: '/system/icons',
+							permission: 'system_icons',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '菜单管理',
-							path: '/system/menu',
-							unique: 'system_menu',
+							url: '/system/menu',
+							permission: 'system_menu',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '行政区划',
-							path: '/system/area',
-							unique: 'system_area',
+							url: '/system/area',
+							permission: 'system_area',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '单据规则',
-							path: '/system/billRule',
-							unique: 'system_billRule',
+							url: '/system/billRule',
+							permission: 'system_billRule',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '数据应用',
-							path: '/systemData',
-							unique: 'systemData',
+							url: '/systemData',
+							permission: 'systemData',
 							hideInMenu: false,
 							children: [{
 									id: Mock.mock('@id'),
 									title: '数据连接',
-									path: '/systemData/dataSource',
-									unique: 'systemData_dataSource',
+									url: '/systemData/dataSource',
+									permission: 'systemData_dataSource',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '数据建模',
-									path: '/systemData/dataModel',
-									unique: 'systemData_dataModel',
+									url: '/systemData/dataModel',
+									permission: 'systemData_dataModel',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '数据备份',
-									path: '/systemData/dataBackup',
-									unique: 'systemData_dataBackup',
+									url: '/systemData/dataBackup',
+									permission: 'systemData_dataBackup',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '数据字典',
-									path: '/systemData/dictionary',
-									unique: 'systemData_dictionary',
+									url: '/systemData/dictionary',
+									permission: 'systemData_dictionary',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '数据接口',
-									path: '/systemData/dataInterface',
-									unique: 'systemData_dataInterface',
+									url: '/systemData/dataInterface',
+									permission: 'systemData_dataInterface',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '数据同步',
-									path: '/systemData/dataSync',
-									unique: 'systemData_dataSync',
+									url: '/systemData/dataSync',
+									permission: 'systemData_dataSync',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '数据地图',
-									path: '/systemData/map',
-									unique: 'systemData_map',
+									url: '/systemData/map',
+									permission: 'systemData_map',
 									hideInMenu: false,
 									children: []
 								}
@@ -264,78 +269,78 @@ router.get('/meuList', function(req, res) {
 						{
 							id: Mock.mock('@id'),
 							title: '微信配置',
-							path: '/weChat',
-							unique: 'weChat',
+							url: '/weChat',
+							permission: 'weChat',
 							hideInMenu: false,
 							children: [{
 									id: Mock.mock('@id'),
 									title: '公众号配置',
-									path: '/weChat/mpConfig',
-									unique: 'weChat_mpConfig',
+									url: '/weChat/mpConfig',
+									permission: 'weChat_mpConfig',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '公众号菜单',
-									path: '/weChat/mpMenu',
-									unique: 'weChat_mpMenu',
+									url: '/weChat/mpMenu',
+									permission: 'weChat_mpMenu',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '公众号用户',
-									path: '/weChat/mpUser',
-									unique: 'weChat_mpUser',
+									url: '/weChat/mpUser',
+									permission: 'weChat_mpUser',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '公众号消息',
-									path: '/weChat/mpMessage',
-									unique: 'weChat_mpMessage',
+									url: '/weChat/mpMessage',
+									permission: 'weChat_mpMessage',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '公众号素材',
-									path: '/weChat/mpMaterial',
-									unique: 'weChat_mpMaterial',
+									url: '/weChat/mpMaterial',
+									permission: 'weChat_mpMaterial',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '企业号配置',
-									path: '/weChat/qyhConfig',
-									unique: 'weChat_qyhConfig',
+									url: '/weChat/qyhConfig',
+									permission: 'weChat_qyhConfig',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '企业号组织',
-									path: '/weChat/qyDepartment',
-									unique: 'weChat_qyDepartment',
+									url: '/weChat/qyDepartment',
+									permission: 'weChat_qyDepartment',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '企业号用户',
-									path: '/weChat/qyUser',
-									unique: 'weChat_qyUser',
+									url: '/weChat/qyUser',
+									permission: 'weChat_qyUser',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '企业号消息',
-									path: '/weChat/qyMessage',
-									unique: 'weChat_qyMessage',
+									url: '/weChat/qyMessage',
+									permission: 'weChat_qyMessage',
 									hideInMenu: false,
 									children: []
 								}
@@ -345,63 +350,63 @@ router.get('/meuList', function(req, res) {
 				},
 				{
 					id: Mock.mock('@id'),
-					path: '/permission',
+					url: '/permission',
 					title: '系统权限',
-					unique: 'permission',
+					permission: 'permission',
 					hideInMenu: false,
 					children: [{
 							id: Mock.mock('@id'),
 							title: '组织管理',
-							path: '/permission/organize',
-							unique: 'permission_organize',
+							url: '/permission/organize',
+							permission: 'permission_organize',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '部门管理',
-							path: '/permission/department',
-							unique: 'permission_department',
+							url: '/permission/department',
+							permission: 'permission_department',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '岗位管理',
-							path: '/permission/position',
-							unique: 'permission_position',
+							url: '/permission/position',
+							permission: 'permission_position',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '用户管理',
-							path: '/permission/user',
-							unique: 'permission_user',
+							url: '/permission/user',
+							permission: 'permission_user',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '角色管理',
-							path: '/permission/role',
-							unique: 'permission_role',
+							url: '/permission/role',
+							permission: 'permission_role',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '权限管理',
-							path: '/permission/authorize',
-							unique: 'permission_authorize',
+							url: '/permission/authorize',
+							permission: 'permission_authorize',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '在线用户',
-							path: '/permission/userOnline',
-							unique: 'permission_userOnline',
+							url: '/permission/userOnline',
+							permission: 'permission_userOnline',
 							hideInMenu: false,
 							children: []
 						}
@@ -409,63 +414,63 @@ router.get('/meuList', function(req, res) {
 				},
 				{
 					id: Mock.mock('@id'),
-					path: '/workFlow',
+					url: '/workFlow',
 					title: '工作流程',
-					unique: 'workFlow',
+					permission: 'workFlow',
 					hideInMenu: false,
 					children: [{
 							id: Mock.mock('@id'),
 							title: '流程设计',
-							path: '/workFlow/flowEngine',
-							unique: 'workFlow_flowEngine',
+							url: '/workFlow/flowEngine',
+							permission: 'workFlow_flowEngine',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '我发起的',
-							path: '/workFlow/flowLaunch',
-							unique: 'workFlow_flowLaunch',
+							url: '/workFlow/flowLaunch',
+							permission: 'workFlow_flowLaunch',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '待办事宜',
-							path: '/workFlow/flowTodo',
-							unique: 'workFlow_flowTodo',
+							url: '/workFlow/flowTodo',
+							permission: 'workFlow_flowTodo',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '已办事宜',
-							path: '/workFlow/flowDone',
-							unique: 'workFlow_flowDone',
+							url: '/workFlow/flowDone',
+							permission: 'workFlow_flowDone',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '抄送事宜',
-							path: '/workFlow/flowCirculate',
-							unique: 'workFlow_flowCirculate',
+							url: '/workFlow/flowCirculate',
+							permission: 'workFlow_flowCirculate',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '流程委托',
-							path: '/workFlow/entrust',
-							unique: 'workFlow_entrust',
+							url: '/workFlow/entrust',
+							permission: 'workFlow_entrust',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '流程监控',
-							path: '/workFlow/flowMonitor',
-							unique: 'workFlow_flowMonitor',
+							url: '/workFlow/flowMonitor',
+							permission: 'workFlow_flowMonitor',
 							hideInMenu: false,
 							children: []
 						}
@@ -473,78 +478,78 @@ router.get('/meuList', function(req, res) {
 				},
 				{
 					id: Mock.mock('@id'),
-					path: '/extend',
+					url: '/extend',
 					title: '扩展应用',
-					unique: 'extend',
+					permission: 'extend',
 					hideInMenu: false,
 					children: [
 						{
 							id: Mock.mock('@id'),
 							title: '报表示例',
-							path: '/dataReport',
-							unique: 'dataReport',
+							url: '/dataReport',
+							permission: 'dataReport',
 							hideInMenu: false,
 							children: [{
 									id: Mock.mock('@id'),
 									title: '交叉占比',
-									path: '/dataReport/jiaocha',
-									unique: 'dataReport_jiaocha',
+									url: '/dataReport/jiaocha',
+									permission: 'dataReport_jiaocha',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '员工薪水占比',
-									path: '/dataReport/yuangong',
-									unique: 'dataReport_yuangong',
+									url: '/dataReport/yuangong',
+									permission: 'dataReport_yuangong',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '向下分组统计',
-									path: '/dataReport/xiangxia',
-									unique: 'dataReport_xiangxia',
+									url: '/dataReport/xiangxia',
+									permission: 'dataReport_xiangxia',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '可钻取交叉',
-									path: '/dataReport/kezhan',
-									unique: 'dataReport_kezhan',
+									url: '/dataReport/kezhan',
+									permission: 'dataReport_kezhan',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '交叉统计',
-									path: '/dataReport/jiaochatongji',
-									unique: 'dataReport_jiaochatongji',
+									url: '/dataReport/jiaochatongji',
+									permission: 'dataReport_jiaochatongji',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '横向多片交叉',
-									path: '/dataReport/hengxiang',
-									unique: 'dataReport_hengxiang',
+									url: '/dataReport/hengxiang',
+									permission: 'dataReport_hengxiang',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '用户列表',
-									path: '/dataReport/yonghu',
-									unique: 'dataReport_yonghu',
+									url: '/dataReport/yonghu',
+									permission: 'dataReport_yonghu',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '错行分组',
-									path: '/dataReport/cuoxing',
-									unique: 'dataReport_cuoxing',
+									url: '/dataReport/cuoxing',
+									permission: 'dataReport_cuoxing',
 									hideInMenu: false,
 									children: []
 								}
@@ -553,30 +558,30 @@ router.get('/meuList', function(req, res) {
 						{
 							id: Mock.mock('@id'),
 							title: '大屏示例',
-							path: '/reportBI',
-							unique: 'reportBI',
+							url: '/reportBI',
+							permission: 'reportBI',
 							hideInMenu: false,
 							children: [{
 									id: Mock.mock('@id'),
 									title: '乡村振兴普惠金融服务平台',
-									path: 'http://localhost:8100/DataV/view/5bf2f01582b7481a9daa8db940dd4caa?token=bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2NTMyMzAxNTgsImF1dGhvcml0aWVzIjpbImFhIl0sImp0aSI6IjRkZmIzYzcwLTAxNzgtNGJlNC1hNGZkLTU4NDUzNjcxYmFhYyIsImNsaWVudF9pZCI6ImFkbWluIiwidG9rZW4iOiJsb2dpbl90b2tlbl80YTVhNWE0MjFlNjE0MmNkYTg3ZWU4YWExNWRkZGY1ZiJ9.EdyBIyK9K6UoXifeH1xx2vQ8B7qhDJxOD3wLAmAjeLhRb_iFKD_XsOq-hSJA-KzeSvo9fA34R3m8-tPAKReTI0fTRYIh-3CzTa1DWw0htS-NXOl--08nTCMBwclB3ruYcltvUhyqo9xQLZ54a7NjP0VYclZ-c3gt_SFdoHrvi96pX9ql_okODseQfQoCq9oMsmDvPny3nYpBaRZhMnHKM_JBukaHJdYwlMW_Ov35P-R_Q9Yv8HlW0w45gYzLyDKyr7QgBtDtyBOoWkeiMxZVZba-77dn09E0IXglGQkIIKWDt29FsT-k2fn_5yD75tnouEtEkUHCc0tgixv2oNgCLQ',
-									unique:'xiangzheng',
+									url: 'http://localhost:8100/DataV/view/5bf2f01582b7481a9daa8db940dd4caa?token=bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2NTMyMzAxNTgsImF1dGhvcml0aWVzIjpbImFhIl0sImp0aSI6IjRkZmIzYzcwLTAxNzgtNGJlNC1hNGZkLTU4NDUzNjcxYmFhYyIsImNsaWVudF9pZCI6ImFkbWluIiwidG9rZW4iOiJsb2dpbl90b2tlbl80YTVhNWE0MjFlNjE0MmNkYTg3ZWU4YWExNWRkZGY1ZiJ9.EdyBIyK9K6UoXifeH1xx2vQ8B7qhDJxOD3wLAmAjeLhRb_iFKD_XsOq-hSJA-KzeSvo9fA34R3m8-tPAKReTI0fTRYIh-3CzTa1DWw0htS-NXOl--08nTCMBwclB3ruYcltvUhyqo9xQLZ54a7NjP0VYclZ-c3gt_SFdoHrvi96pX9ql_okODseQfQoCq9oMsmDvPny3nYpBaRZhMnHKM_JBukaHJdYwlMW_Ov35P-R_Q9Yv8HlW0w45gYzLyDKyr7QgBtDtyBOoWkeiMxZVZba-77dn09E0IXglGQkIIKWDt29FsT-k2fn_5yD75tnouEtEkUHCc0tgixv2oNgCLQ',
+									permission:'xiangzheng',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '网络机房设备信息',
-									path: 'http://localhost:8100/DataV/view/a5bc61d662f8444a901d3a48c716f0b8?token=bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2NTMyMzAxNTgsImF1dGhvcml0aWVzIjpbImFhIl0sImp0aSI6IjRkZmIzYzcwLTAxNzgtNGJlNC1hNGZkLTU4NDUzNjcxYmFhYyIsImNsaWVudF9pZCI6ImFkbWluIiwidG9rZW4iOiJsb2dpbl90b2tlbl80YTVhNWE0MjFlNjE0MmNkYTg3ZWU4YWExNWRkZGY1ZiJ9.EdyBIyK9K6UoXifeH1xx2vQ8B7qhDJxOD3wLAmAjeLhRb_iFKD_XsOq-hSJA-KzeSvo9fA34R3m8-tPAKReTI0fTRYIh-3CzTa1DWw0htS-NXOl--08nTCMBwclB3ruYcltvUhyqo9xQLZ54a7NjP0VYclZ-c3gt_SFdoHrvi96pX9ql_okODseQfQoCq9oMsmDvPny3nYpBaRZhMnHKM_JBukaHJdYwlMW_Ov35P-R_Q9Yv8HlW0w45gYzLyDKyr7QgBtDtyBOoWkeiMxZVZba-77dn09E0IXglGQkIIKWDt29FsT-k2fn_5yD75tnouEtEkUHCc0tgixv2oNgCLQ',
-									unique:'jifang',
+									url: 'http://localhost:8100/DataV/view/a5bc61d662f8444a901d3a48c716f0b8?token=bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2NTMyMzAxNTgsImF1dGhvcml0aWVzIjpbImFhIl0sImp0aSI6IjRkZmIzYzcwLTAxNzgtNGJlNC1hNGZkLTU4NDUzNjcxYmFhYyIsImNsaWVudF9pZCI6ImFkbWluIiwidG9rZW4iOiJsb2dpbl90b2tlbl80YTVhNWE0MjFlNjE0MmNkYTg3ZWU4YWExNWRkZGY1ZiJ9.EdyBIyK9K6UoXifeH1xx2vQ8B7qhDJxOD3wLAmAjeLhRb_iFKD_XsOq-hSJA-KzeSvo9fA34R3m8-tPAKReTI0fTRYIh-3CzTa1DWw0htS-NXOl--08nTCMBwclB3ruYcltvUhyqo9xQLZ54a7NjP0VYclZ-c3gt_SFdoHrvi96pX9ql_okODseQfQoCq9oMsmDvPny3nYpBaRZhMnHKM_JBukaHJdYwlMW_Ov35P-R_Q9Yv8HlW0w45gYzLyDKyr7QgBtDtyBOoWkeiMxZVZba-77dn09E0IXglGQkIIKWDt29FsT-k2fn_5yD75tnouEtEkUHCc0tgixv2oNgCLQ',
+									permission:'jifang',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '数据大屏管理驾驶舱',
-									path: 'http://localhost:8100/DataV/view/6c2c820a2a704292bedf635dcaa9c3d8?token=bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2NTMyMzAxNTgsImF1dGhvcml0aWVzIjpbImFhIl0sImp0aSI6IjRkZmIzYzcwLTAxNzgtNGJlNC1hNGZkLTU4NDUzNjcxYmFhYyIsImNsaWVudF9pZCI6ImFkbWluIiwidG9rZW4iOiJsb2dpbl90b2tlbl80YTVhNWE0MjFlNjE0MmNkYTg3ZWU4YWExNWRkZGY1ZiJ9.EdyBIyK9K6UoXifeH1xx2vQ8B7qhDJxOD3wLAmAjeLhRb_iFKD_XsOq-hSJA-KzeSvo9fA34R3m8-tPAKReTI0fTRYIh-3CzTa1DWw0htS-NXOl--08nTCMBwclB3ruYcltvUhyqo9xQLZ54a7NjP0VYclZ-c3gt_SFdoHrvi96pX9ql_okODseQfQoCq9oMsmDvPny3nYpBaRZhMnHKM_JBukaHJdYwlMW_Ov35P-R_Q9Yv8HlW0w45gYzLyDKyr7QgBtDtyBOoWkeiMxZVZba-77dn09E0IXglGQkIIKWDt29FsT-k2fn_5yD75tnouEtEkUHCc0tgixv2oNgCLQ',
-									unique:'dapingshuju',
+									url: 'http://localhost:8100/DataV/view/6c2c820a2a704292bedf635dcaa9c3d8?token=bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2NTMyMzAxNTgsImF1dGhvcml0aWVzIjpbImFhIl0sImp0aSI6IjRkZmIzYzcwLTAxNzgtNGJlNC1hNGZkLTU4NDUzNjcxYmFhYyIsImNsaWVudF9pZCI6ImFkbWluIiwidG9rZW4iOiJsb2dpbl90b2tlbl80YTVhNWE0MjFlNjE0MmNkYTg3ZWU4YWExNWRkZGY1ZiJ9.EdyBIyK9K6UoXifeH1xx2vQ8B7qhDJxOD3wLAmAjeLhRb_iFKD_XsOq-hSJA-KzeSvo9fA34R3m8-tPAKReTI0fTRYIh-3CzTa1DWw0htS-NXOl--08nTCMBwclB3ruYcltvUhyqo9xQLZ54a7NjP0VYclZ-c3gt_SFdoHrvi96pX9ql_okODseQfQoCq9oMsmDvPny3nYpBaRZhMnHKM_JBukaHJdYwlMW_Ov35P-R_Q9Yv8HlW0w45gYzLyDKyr7QgBtDtyBOoWkeiMxZVZba-77dn09E0IXglGQkIIKWDt29FsT-k2fn_5yD75tnouEtEkUHCc0tgixv2oNgCLQ',
+									permission:'dapingshuju',
 									hideInMenu: false,
 									children: []
 								}
@@ -585,85 +590,94 @@ router.get('/meuList', function(req, res) {
 						{
 							id: Mock.mock('@id'),
 							title: '图表示例',
-							path: '/extend.graphDemo',
-							unique:'graphDemo',
+							url: '/extend.graphDemo',
+							permission:'graphDemo',
 							hideInMenu: false,
 							children: [{
 									id: Mock.mock('@id'),
 									title: 'E-柱状图',
-									path: '/extend/graphDemo/echartsBar',
-									unique:'graphDemo',
+									url: '/extend/graphDemo/echartsBar',
+									permission:'graphDemo',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'E-饼状图',
-									path: '/extend/graphDemo/echartsPie',
-									unique:'graphDemo',
+									url: '/extend/graphDemo/echartsPie',
+									permission:'graphDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'E-横状条形图',
-									path: '/extend/graphDemo/echartsBarAcross',
+									url: '/extend/graphDemo/echartsBarAcross',
+									permission:'graphDemo_echartsBarAcross',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'E-仪表图',
-									path: '/extend/graphDemo/echartsGauge',
+									url: '/extend/graphDemo/echartsGauge',
+									permission:'graphDemo_echartsGauge',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'E-线形图',
-									path: '/extend/graphDemo/echartsLineArea',
+									url: '/extend/graphDemo/echartsLineArea',
+									permission:'graphDemo_echartsLineArea',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'E-散点图',
-									path: '/extend/graphDemo/echartsScatter',
+									url: '/extend/graphDemo/echartsScatter',
+									permission:'graphDemo_echartsScatter',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'E-K线图',
-									path: '/extend/graphDemo/echartsCandlestick',
+									url: '/extend/graphDemo/echartsCandlestick',
+									permission:'graphDemo_echartsCandlestick',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'E-折柱混合图',
-									path: '/extend/graphDemo/echartsLineBar',
+									url: '/extend/graphDemo/echartsLineBar',
+									permission:'graphDemo_echartsLineBar',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'E-树形图',
-									path: '/extend/graphDemo/echartsTree',
+									url: '/extend/graphDemo/echartsTree',
+									permission:'graphDemo_echartsTree',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'E-漏斗图',
-									path: '/extend/graphDemo/echartsFunnel',
+									url: '/extend/graphDemo/echartsFunnel',
+									permission:'graphDemo_echartsFunnel',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'H-散点图',
-									path: '/extend/graphDemo/highchartsScatter',
+									url: '/extend/graphDemo/highchartsScatter',
+									permission:'graphDemo_highchartsScatter',
 									hideInMenu: false,
 									children: []
 								},
@@ -671,63 +685,72 @@ router.get('/meuList', function(req, res) {
 								{
 									id: Mock.mock('@id'),
 									title: 'H-词云图',
-									path: '/extend/graphDemo/highchartsWordcloud',
+									url: '/extend/graphDemo/highchartsWordcloud',
+									permission:'graphDemo_highchartsWordcloud',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'H-线性图',
-									path: '/extend/graphDemo/highchartsLine',
+									url: '/extend/graphDemo/highchartsLine',
+									permission:'graphDemo_highchartsLine',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'H-面积图',
-									path: '/extend/graphDemo/highchartsArea',
+									url: '/extend/graphDemo/highchartsArea',
+									permission:'graphDemo_highchartsArea',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'H-仪表图',
-									path: '/extend/graphDemo/highchartsGauge',
+									url: '/extend/graphDemo/highchartsGauge',
+									permission:'graphDemo_highchartsGauge',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'H-贝尔曲线',
-									path: '/extend/graphDemo/highchartsBellcurve',
+									url: '/extend/graphDemo/highchartsBellcurve',
+									permission:'graphDemo_highchartsBellcurve',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'H-漏斗图',
-									path: '/extend/graphDemo/highchartsFunnel',
+									url: '/extend/graphDemo/highchartsFunnel',
+									permission:'graphDemo_highchartsFunnel',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'H-子弹图',
-									path: '/extend/graphDemo/highchartsBullet',
+									url: '/extend/graphDemo/highchartsBullet',
+									permission:'graphDemo_highchartsBullet',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'H-柱状图',
-									path: '/extend/graphDemo/highchartsColumn',
+									url: '/extend/graphDemo/highchartsColumn',
+									permission:'graphDemo_highchartsColumn',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: 'H-饼状图',
-									path: '/extend/graphDemo/highchartsPie',
+									url: '/extend/graphDemo/highchartsPie',
+									permission:'graphDemo_highchartsPie',
 									hideInMenu: false,
 									children: []
 								}
@@ -736,26 +759,30 @@ router.get('/meuList', function(req, res) {
 						{
 							id: Mock.mock('@id'),
 							title: '表格示例',
-							path: '/extend.tableDemo',
+							url: '/extend.tableDemo',
+							permission:'tableDemo',
 							hideInMenu: false,
 							children: [{
 									id: Mock.mock('@id'),
 									title: '普通表格',
-									path: '/extend/tableDemo/commonTable',
+									url: '/extend/tableDemo/commonTable',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表格统计',
-									path: '/extend/tableDemo/statisticsTable',
+									url: '/extend/tableDemo/statisticsTable',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表格锁定',
-									path: '/extend/tableDemo/lockTable',
+									url: '/extend/tableDemo/lockTable',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
@@ -763,70 +790,80 @@ router.get('/meuList', function(req, res) {
 								{
 									id: Mock.mock('@id'),
 									title: '表格分组',
-									path: '/extend/tableDemo/groupingTable',
+									url: '/extend/tableDemo/groupingTable',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表格编辑',
-									path: '/extend/tableDemo/redactTable',
+									url: '/extend/tableDemo/redactTable',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '复杂表头',
-									path: '/extend/tableDemo/complexHeader',
+									url: '/extend/tableDemo/complexHeader',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表格合并',
-									path: '/extend/tableDemo/mergeTable',
+									url: '/extend/tableDemo/mergeTable',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表格打印',
-									path: '/extend/tableDemo/printTable',
+									url: '/extend/tableDemo/printTable',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '延伸扩展',
-									path: '/extend/tableDemo/extension',
+									url: '/extend/tableDemo/extension',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '树形表格',
-									path: '/extend/tableDemo/treeTable',
+									url: '/extend/tableDemo/treeTable',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表格批注',
-									path: '/extend/tableDemo/postilTable',
+									url: '/extend/tableDemo/postilTable',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表格标记',
-									path: '/extend/tableDemo/signTable',
+									url: '/extend/tableDemo/signTable',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表格树形',
-									path: '/extend/tableDemo/tableTree',
+									url: '/extend/tableDemo/tableTree',
+									permission:'tableDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								}
@@ -835,33 +872,38 @@ router.get('/meuList', function(req, res) {
 						{
 							id: Mock.mock('@id'),
 							title: '表单示例',
-							path: '/extend.formDemo',
+							url: '/extend.formDemo',
+							permission:'formDemo',
 							hideInMenu: false,
 							children: [{
 									id: Mock.mock('@id'),
 									title: '表单验证',
-									path: '/extend/formDemo/verifyForm',
+									url: '/extend/formDemo/verifyForm',
+									permission:'formDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表单验证1',
-									path: '/extend/formDemo/verifyForm1',
+									url: '/extend/formDemo/verifyForm1',
+									permission:'formDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表单字段1',
-									path: '/extend/formDemo/fieldForm1',
+									url: '/extend/formDemo/fieldForm1',
+									permission:'formDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表单字段2',
-									path: '/extend/formDemo/fieldForm2',
+									url: '/extend/formDemo/fieldForm2',
+									permission:'formDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
@@ -869,7 +911,8 @@ router.get('/meuList', function(req, res) {
 								{
 									id: Mock.mock('@id'),
 									title: '表单字段3',
-									path: '/extend/formDemo/fieldForm3',
+									url: '/extend/formDemo/fieldForm3',
+									permission:'formDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 
@@ -877,21 +920,24 @@ router.get('/meuList', function(req, res) {
 								{
 									id: Mock.mock('@id'),
 									title: '表单字段4',
-									path: '/extend/formDemo/fieldForm4',
+									url: '/extend/formDemo/fieldForm4',
+									permission:'formDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表单字段5',
-									path: '/extend/formDemo/fieldForm5',
+									url: '/extend/formDemo/fieldForm5',
+									permission:'formDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '表单字段6',
-									path: '/extend/formDemo/fieldForm6',
+									url: '/extend/formDemo/fieldForm6',
+									permission:'formDemo_echartsPie',
 									hideInMenu: false,
 									children: []
 								}
@@ -900,33 +946,38 @@ router.get('/meuList', function(req, res) {
 						{
 							id: Mock.mock('@id'),
 							title: '功能示例',
-							path: '/gongnegshili',
+							url: '/gongnegshili',
+							permission:'gongnegshili',
 							hideInMenu: false,
 							children: [{
 									id: Mock.mock('@id'),
 									title: '应收费用',
-									path: '/model/2323232',
+									url: '/model/2323232',
+									permission:'gongnegshili_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '大客户信息',
-									path: '/model/kehuxinxi',
+									url: '/model/kehuxinxi',
+									permission:'gongnegshili_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '库房管理',
-									path: '/model/kufang',
+									url: '/model/kufang',
+									permission:'gongnegshili_echartsPie',
 									hideInMenu: false,
 									children: []
 								},
 								{
 									id: Mock.mock('@id'),
 									title: '入职申请',
-									path: '/model/ruzhi',
+									url: '/model/ruzhi',
+									permission:'gongnegshili_echartsPie',
 									hideInMenu: false,
 									children: []
 								}
@@ -936,56 +987,64 @@ router.get('/meuList', function(req, res) {
 						{
 							id: Mock.mock('@id'),
 							title: '百万数据',
-							path: '/extend/bigData',
+							url: '/extend/bigData',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '导入导出',
-							path: '/extend/importAndExport',
+							url: '/extend/importAndExport',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '电子签名',
-							path: '/extend/signature',
+							url: '/extend/signature',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '电子签章',
-							path: '/extend/signet',
+							url: '/extend/signet',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '日程安排',
-							path: '/extend/schedule',
+							url: '/extend/schedule',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '邮件收发',
-							path: '/extend/email',
+							url: '/extend/email',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '知识管理',
-							path: '/extend/document',
+							url: '/extend/document',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '文件预览',
-							path: '/extend/documentPreview',
+							url: '/extend/documentPreview',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
@@ -993,35 +1052,40 @@ router.get('/meuList', function(req, res) {
 						{
 							id: Mock.mock('@id'),
 							title: '条码示例',
-							path: '/extend/barCode',
+							url: '/extend/barCode',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '打印示例',
-							path: '/extend/printData',
+							url: '/extend/printData',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '地图示例',
-							path: '/extend/map',
+							url: '/extend/map',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '订单管理',
-							path: '/extend/order',
+							url: '/extend/order',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						},
 						{
 							id: Mock.mock('@id'),
 							title: '项目管理',
-							path: '/extend/projectGantt',
+							url: '/extend/projectGantt',
+							permission:'graphDemo_echartsPie',
 							hideInMenu: false,
 							children: []
 						}
