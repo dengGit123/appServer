@@ -1091,6 +1091,14 @@ router.post('/userInfo', function(req, res) {
 							children: []
 						}
 					]
+				},
+				{
+					id: Mock.mock('@id'),
+					url: '/onlineDev',
+					menuName: '在线开发',
+					permission: 'onlineDev',
+					hideInMenu: false,
+					children:[]
 				}
 			]
 		}
